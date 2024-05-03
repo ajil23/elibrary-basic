@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
+use App\Models\Buku;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::middleware([
@@ -14,7 +16,9 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('admin.index');
+        $buku = Buku::count();
+        $kategori = Kategori::count();
+        return view('admin.index', compact('buku', 'kategori'));
     })->name('dashboard');
 
     // Buku

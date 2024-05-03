@@ -23,18 +23,10 @@ class BukuController extends Controller
         $buku = new Buku();
         $buku->judul = $request->judul;
         $buku->kategori_id = $request->kategori_id;
+        $buku->jumlah = $request->jumlah;
         if ($request->hasFile('image')) {
             $sampul = $request->file('image')->store('image');
             $buku->image = $sampul;
-        }
-
-        if ($request->hasFile('pdf')) {
-            $request->validate([
-                'pdf' => 'required|mimes:pdf|max:2048',
-            ]);
-            $pdfFile = $request->file('pdf');
-            $filebuku  = $pdfFile->store('pdf', 'public');
-            $buku->pdf = $filebuku ;
         }
         $buku->save();
         return redirect()->route('buku.tampil');
@@ -50,19 +42,11 @@ class BukuController extends Controller
         $buku = Buku::find($id);
         $buku->judul = $request->judul;
         $buku->kategori_id = $request->kategori_id;
+        $buku->jumlah = $request->jumlah;
         if ($request->hasFile('image')) {
             Storage::delete($buku->image);
             $image = $request->file('image')->store('image');
             $buku->image = $image;
-        }
-        if ($request->hasFile('pdf')) {
-            $request->validate([
-                'pdf' => 'required|mimes:pdf|max:2048',
-            ]);
-            Storage::delete($buku->pdf);
-            $pdfFile = $request->file('pdf');
-            $filebuku  = $pdfFile->store('pdf', 'public');
-            $buku->pdf = $filebuku ;
         }
         $buku->update();
         return redirect()->route('buku.tampil');

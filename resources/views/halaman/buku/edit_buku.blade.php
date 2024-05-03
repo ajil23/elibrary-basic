@@ -29,8 +29,8 @@
                           </select>
                     </div>
                     <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">File Buku</label>
-                        <input type="file" class="form-control" id="pdf" name="pdf">
+                        <label for="formGroupExampleInput" class="form-label">Jumlah Buku</label>
+                        <input type="file" class="form-control" id="jumlah" name="jumlah">
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Sampul</label>

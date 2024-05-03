@@ -22,7 +22,7 @@
                             <th><center>No</center></th>
                             <th><center>Judul</center></th>
                             <th><center>Kategori</center></th>
-                            <th><center>File</center></th>
+                            <th><center>Jumlah</center></th>
                             <th><center>Sampul</center></th>
                             <th><center>Aksi</center></th>
                         </tr>
@@ -33,9 +33,7 @@
                             <td><center>{{$loop->iteration}}</center></td>
                             <td><center>{{$item->judul}}</center></td>
                             <td><center>{{$item->kategori->nama_kategori}}</center></td>
-                            <td><a href="{{route('buku.pdf',$item->id)}}" target="_blank">
-                                <center><i class="fas fa-eye"></i><b>Lihat</b></center>
-                                </a></td>
+                            <td><center>{{$item->jumlah}}</td>
                             <td><center><img src="{{ asset('storage/'.$item->image) }}" alt="sampul" style="height: 5rem; width:4rem"></center></td>
                             <td colspan="2"> <center>
                                 <a href="{{route('buku.edit', $item->id)}}" class="btn btn-warning"> Edit </a>
