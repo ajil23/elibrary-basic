@@ -48,5 +48,5 @@ Route::middleware([
     Route::get('/edit-peminjaman/{id}', [PeminjamanController::class, 'edit'])->name('peminjaman.edit');
     Route::post('/update-peminjaman/{id}', [PeminjamanController::class, 'update'])->name('peminjaman.update');
     Route::get('/hapus-peminjaman/{id}', [PeminjamanController::class, 'delete'])->name('peminjaman.hapus');
-    
+    Route::get('/export-peminjaman', [PeminjamanController::class, 'export'])->name('peminjaman.export');
 });

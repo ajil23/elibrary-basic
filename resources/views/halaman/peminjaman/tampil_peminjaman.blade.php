@@ -8,7 +8,7 @@
                 <h1 class="h3 mb-2 text-gray-800">Data Peminjaman Buku</h1>
             </div>
             <div class="co text-end mb-2">
-                <a href="{{route('peminjaman.tambah')}}"><button type="button" class="btn btn-success">Export Excel</button></a>
+                <a href="{{route('peminjaman.export')}}"><button type="button" class="btn btn-success">Export Excel</button></a>
                 <a href="{{route('peminjaman.tambah')}}"><button type="button" class="btn btn-primary">Tambah Peminjaman</button></a>
             </div>
         </div>
