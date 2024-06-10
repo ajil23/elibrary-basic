@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PeminjamanController;
 use App\Models\Buku;
 use App\Models\Kategori;
+use App\Models\Peminjaman;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,7 +20,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         $buku = Buku::count();
         $kategori = Kategori::count();
-        return view('admin.index', compact('buku', 'kategori'));
+        $peminjaman = Peminjaman::count();
+        return view('admin.index', compact('buku', 'kategori', 'peminjaman'));
     })->name('dashboard');
 
     // Buku
@@ -37,4 +40,13 @@ Route::middleware([
     Route::get('/edit-kategori/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::post('/update-kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
     Route::get('/hapus-kategori/{id}', [KategoriController::class, 'delete'])->name('kategori.hapus');
+
+    // Peminjaman
+    Route::get('/tampil-peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.tampil');
+    Route::get('/tambah-peminjaman', [PeminjamanController::class, 'add'])->name('peminjaman.tambah');
+    Route::post('/store-peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+    Route::get('/edit-peminjaman/{id}', [PeminjamanController::class, 'edit'])->name('peminjaman.edit');
+    Route::post('/update-peminjaman/{id}', [PeminjamanController::class, 'update'])->name('peminjaman.update');
+    Route::get('/hapus-peminjaman/{id}', [PeminjamanController::class, 'delete'])->name('peminjaman.hapus');
+    
 });

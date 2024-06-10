@@ -18,7 +18,14 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-    
+   
+     <!-- Nav Item Collapse Menu -->
+     <li class="{{'tampil-peminjaman' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a class="nav-link" href="{{route('peminjaman.tampil')}}">
+            <i class="fas fa-solid fa-book"></i>
+            <span>Peminjaman</span></a>
+    </li>
+
     <!-- Nav Item Collapse Menu -->
     <li class="{{'tampil-buku' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link" href="{{route('buku.tampil')}}">
